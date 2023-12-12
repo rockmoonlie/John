@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+
+
+body{
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #05034E 37.5%, #000 100%) no-repeat;
+  background-size: cover;
+  font-family: 'Marck Script', cursive;
+  /* margin: 53px 141px 20px 141px; */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card{
+  position: relative;
+  width: 287px;
+  height:345px;
+  transition: all 0.5s ease;
+  transform-style: preserve-3d;
+  border-radius: 11px;
+}
+
+.card:hover{
+  transform: rotateY(180deg);
+}
+
+/*.container:hover> .card{
+  transform: rotateY(180deg);
+}*/
+
+ .card_back{
+  position: absolute;
+  left:0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  background:#B10CDB;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 11px;
+}
+
+.card_front{
+  position: absolute;
+  left:0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card_back p{
+  color: #FFF;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 176.439%;
+  width: 250px;
+}
+
+img{
+  width: 287px;
+  height:345px;
+  border-radius: 11px;
+  object-fit:cover;
+}
+
+section{
+  display:grid;
+  grid-template-columns: repeat(3,287px);
+  row-gap: 30px;
+  column-gap: 71px;
+  margin: auto 0;
+  grid-template-areas: 
+  "card1 card2 card3"
+  "card4 card5 card6"
+  "card7 card8 card9"
+  "card10 card11 card12"
+  ;
+} 
+
+header p{
+  color: #FFF;
+  text-align: center;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 2rem;
+}
+
+header h2{
+  color: #FFF;
+  font-family: Marck Script;
+  font-size: 3.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header{
+  margin-bottom: 73px;
+}
+
+footer{
+  margin-top: 71px;
+}
+
+footer p{
+  color: #FFF;
+  text-align: center;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 2rem;
+}
+
+#card1{
+  grid-area: card1;
+}
+
+#card2{
+  grid-area: card2;
+}
+
+#card3{
+  grid-area: card3;
+}
+
+#card4{
+  grid-area: card4;
+}
+
+#card5{
+  grid-area: card5;
+}
+
+#card6{
+  grid-area: card6;
+}
+
+#card7{
+  grid-area: card7;
+}
+
+#card8{
+  grid-area: card8;
+}
+
+#card9{
+  grid-area: card9;
+}
+
+#card10{
+  grid-area: card10;
+}
+
+#card11{
+  grid-area: card11;
+}
+
+#card12{
+  grid-area: card12;
+}
+
+@media screen and (max-width:550px){
+  section{
+    grid-template-columns:1fr;
+    grid-template-rows: repeat(12,1fr);
+    grid-template-areas: 
+    "card1"
+    "card2"
+    "card3"
+    "card4"
+    "card5"
+    "card6"
+    "card7"
+    "card8"
+    "card9"
+    "card10"
+    "card11"
+    "card12";
+  }
+  
+  header h2{
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  header p, footer p{
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  header{
+    width: 100%;
+  }
+
+  .card::before, .card::after{
+    content:"";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background:linear-gradient(45deg, #00ffff, #ff00ff, #ff0099, #620dd0);
+    background-size: 100%;
+    width: calc(100% + 5px);
+    height: calc(100% + 5px);
+    z-index: -1;
+    animation: back 25s infinite linear;
+    border-radius: 11px;
+  }
+
+  @keyframes back {
+    0%{
+      background-position: 0 0;
+    }
+
+
+    50%{
+      background-position: 100% 0% ;
+    }
+
+
+    100%{
+      background-position: 0 0;
+    }
+  }
+
+  .card::after{
+    filter: blur(15px);
+  }
+}
